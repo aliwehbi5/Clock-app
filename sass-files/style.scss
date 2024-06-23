@@ -1,0 +1,252 @@
+@import "varaibles";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// Start Body
+body {
+  font-family: "Inter", sans-serif;
+  position: relative;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+// End Body
+// Container
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: $maxMobile) {
+    min-width: 300px;
+  }
+  @media (min-width: $minSmall) {
+    width: 720px;
+  }
+  @media (min-width: $minMedium) {
+    width: 960px;
+  }
+  @media (min-width: $minLarge) {
+    width: 1140px;
+  }
+}
+.background {
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  filter: brightness(0.7);
+  &.night {
+    background-image: url(../imgs/night.jpeg);
+  }
+  &.day {
+    background-image: url(../imgs/bg-image-daytime.jpg);
+  }
+}
+// Start Main
+main {
+  padding: 5rem 0 0;
+  max-width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  height: 100vh;
+  @media (max-width: $maxMobile) {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .quotes-wraper {
+    @media (min-width: $minMedium) {
+      max-width: 50%;
+    }
+    color: white;
+    display: flex;
+    gap: 20px;
+    height: 30vh;
+    .quote-wraper {
+      width: calc(95% - 20px);
+      @media (max-width: $maxMobile) {
+        width: calc(90% - 20px);
+      }
+      h4 {
+        margin-top: 15px;
+      }
+      q {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        @media (max-width: $maxMobile) {
+          font-size: 0.8rem;
+          line-height: 1.2rem;
+        }
+      }
+    }
+    svg {
+      width: 5%;
+      @media (max-width: $maxMobile) {
+        width: 10%;
+      }
+      fill: white;
+      margin-top: 7px;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: $main-transition;
+      -webkit-transition: $main-transition;
+      -moz-transition: $main-transition;
+      -ms-transition: $main-transition;
+      -o-transition: $main-transition;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  section {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px;
+    @media (min-width: $minMedium) {
+      align-items: end;
+      flex-direction: row;
+    }
+
+    .time-detials {
+      color: white;
+      .weather {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        p.weather-currently {
+          font-size: 22px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          @media (max-width: $maxMobile) {
+            font-size: 15px;
+          }
+        }
+      }
+      .time-wrapper {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+        h1.time-now {
+          font-size: 9rem;
+          padding: 20px;
+          line-height: 9rem;
+          @media (max-width: $maxMobile) {
+            font-size: 5rem;
+            padding: 12px;
+            line-height: 5rem;
+          }
+        }
+        .time-standred {
+          font-size: 2rem;
+          padding-bottom: 20px;
+          @media (max-width: $maxMobile) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    button {
+      border: none;
+      padding: 0.6rem;
+      padding-left: 1rem;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+      color: $grey-color;
+      font-size: 1.2rem;
+      letter-spacing: 0.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      max-width: 170px;
+      @media (max-width: $maxMobile) {
+        max-width: 155px;
+        font-size: 1rem;
+      }
+      img {
+        transition: $main-transition;
+        -webkit-transition: $main-transition;
+        -moz-transition: $main-transition;
+        -ms-transition: $main-transition;
+        -o-transition: $main-transition;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+      }
+      &.clicked img {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+      }
+    }
+  }
+}
+.detials {
+  background-color: $light-grey-color;
+  padding: 60px;
+  height: 50vh;
+  @media (max-width: $maxMobile) {
+    padding: 60px 30px;
+  }
+  ul.detials-content {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    li {
+      width: calc(50% - 20px);
+      padding: 0 20px;
+      color: $black-color;
+      @media (max-width: $maxMobile) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+      }
+      h4 {
+        font-size: 3.5rem;
+        @media (max-width: $maxMobile) {
+          font-size: 1.2rem;
+        }
+      }
+      p {
+        margin-bottom: 20px;
+        @media (max-width: $maxMobile) {
+          font-size: 0.8rem;
+          margin: 0;
+        }
+      }
+      &:first-of-type {
+        order: 1;
+      }
+      &:nth-of-type(2) {
+        order: 3;
+      }
+      &:nth-of-type(3) {
+        order: 2;
+      }
+      &:last-of-type {
+        order: 4;
+      }
+    }
+  }
+}
