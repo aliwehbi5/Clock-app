@@ -9,6 +9,7 @@ const background = document.querySelector(".background");
 const author = document.querySelector(".quote-wraper h4");
 const quote = document.querySelector(".quote");
 const weatherImg = document.querySelector(".weather-img");
+const time = document.querySelector("p.time");
 
 showBtn.addEventListener("click", () => {
   showBtn.classList.toggle("clicked");
@@ -59,7 +60,11 @@ function getQuote() {
     })
     .then(function (data) {
       quote.textContent = data.content;
-      author.textContent = data.author;
+      if (data.author) {
+        author.textContent = data.author;
+      } else {
+        author.textContent = "Unknown Author";
+      }
     });
 }
 
@@ -83,14 +88,17 @@ function refreshTime() {
   const currentDateTime = getCurrentDateTime();
   if (hour < 12) {
     weatherCurrently.textContent = "Good Morning, it's currently";
+    time.textContent = "am";
     background.classList.replace("night", "day");
     background.classList.add("day");
     weatherImg.src =
       "	https://emestabillo-clock-app.vercel.app/assets/desktop/icon-sun.svg";
   } else if (hour < 18) {
     weatherCurrently.textContent = "Good Afternoon, it's currently";
+    time.textContent = "pm";
   } else {
     weatherCurrently.textContent = "Good Evening, it's currently";
+    time.textContent = "pm";
     background.classList.replace("day", "night");
     background.classList.add("night");
     weatherImg.src =
