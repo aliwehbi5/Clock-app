@@ -53,7 +53,7 @@ body {
   filter: brightness(0.7);
 }
 .background.night {
-  background-image: url(../imgs/night.jpeg);
+  background-image: url(../imgs/night.jpg);
 }
 .background.day {
   background-image: url(../imgs/bg-image-daytime.jpg);
